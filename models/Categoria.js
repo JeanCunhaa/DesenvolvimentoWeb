@@ -2,11 +2,11 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
 const Categoria = new Schema({
-    nome: {
+    logradouro: {
         type: String,
         required: true
     },
-    slug: {
+    cep: {
         type: String,
         required: true
     },

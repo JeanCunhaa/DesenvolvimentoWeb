@@ -1,0 +1,228 @@
+
+
+
+*{
+    margin: 0px;
+}
+
+#area-login{
+    background: #f7f7f7;
+    align-items: center;
+    display: flex;
+    height: 3em;
+    justify-content: space-between;
+    
+}
+
+
+.link-login{
+    padding: 1em;
+    text-decoration: none;
+    color:#8e8484
+}
+
+.icone-login{
+    margin-left: 1em;
+}
+
+form{
+    border-radius: 2rem;
+    border: 1px solid;
+    right: 6%;
+    top: 6%;
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    margin-top: 0%;
+    padding-left: 5%;
+    padding-right: 0%;
+    margin-left: 10%;
+}
+.search{
+    width: 73%;
+    border-radius: 3rem;
+    border: 1px solid;
+    right: 2%;
+    left: 16.5%;
+    top: 6%;
+    position: absolute;
+    height: 90%;
+    padding-right: 0%;
+    margin-left: 10%;
+    border: transparent;
+}
+.lupa{
+    border-radius: 5rem;
+    right: 5%;
+    left: 1%;
+    top: 6%;
+    position: absolute;
+    height: 80%;
+    padding-right: 0%;
+    margin-left: 5%;
+}
+
+#login{
+    display: block;
+    margin-right: 2em;
+    margin-top: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    
+}
+
+
+#area-menu{
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5em;
+}
+
+#icone-nike{
+    margin-left: 2em;
+    
+}
+
+#opcoes-menu{
+    margin-right: 1em;
+    padding: 10em;
+}
+
+.link-menu{
+    
+    padding: 1em;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#carrinho-de-compra{
+    padding-right: 2.5%;
+}
+
+#entrar{
+    align-items: center;
+    display: flex;
+    margin-left: 65em;
+}
+#email{
+    border-radius: 1em;
+}
+#password{
+    border-radius: 1em;;
+}
+
+#cep{
+    display: block;
+    border-radius: 1em;
+}
+
+.lblEntrar{
+    position: relative;
+    align-items: center;
+    padding-left: 1em;
+}
+
+#button{
+    border-radius: 1em;
+    
+}
+
+
+#informacoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5em;
+    background: #f7f7f7;
+    
+}
+
+
+#conteudo{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+}
+
+#imagem-conteudo{
+    max-width: 1440rem;
+    box-sizing: border-box;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+#errorLogin{
+    display: none;
+    color: red;
+    margin-left: 1em;
+}
+
+#show{
+    display: none;
+    margin-left: 2em;
+}
+
+#logado{
+    display: none;
+    margin-right: 2em;
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(236, 189, 189);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 1024px){
+    #opcoes-menu{
+       opacity: 0; 
+    }
+    #area-login{
+       opacity: 0;
+       display: none;
+        
+    }
+
+    #area-menu{
+        background: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        height: 5em;
+    }
+    #icone-nike{
+        margin-left: 2em;
+        width: 100%;   
+    }
+    #carrinho-de-compra{
+        padding-right: 2.5%;
+    }
+
+    #conteudo{
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        height: auto;
+        min-height: 100%;
+    }
+
+    #imagem-conteudo{
+        width: 100%;
+        height: 100%;
+    }
+
+    #imagem-conteudo{
+        max-width: 1000%;
+        box-sizing: border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    form{
+        opacity: 0;
+    }
+
+}
+

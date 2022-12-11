@@ -14,7 +14,7 @@ require ("./config/auth")(passport)
 //config
     //sessão
     app.use(session({
-        secret: "cursodenode",
+        secret: "sitedanike",
         resave: true,
         saveUninitialized: true
     }))
@@ -46,7 +46,7 @@ require ("./config/auth")(passport)
     app.set("layouts", "main");
     //mongoose
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost/blogapp", {
+    mongoose.connect("mongodb://localhost/sitenike", {
         useNewUrlParser: true
     }).then(() => {
         console.log("MongoDB conectado....")
