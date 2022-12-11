@@ -7,7 +7,9 @@ const path = require("path")
 const mongoose = require('mongoose')
 const session = require("express-session");
 const flash = require("connect-flash")
-const usuarios= require("./routes/usuario")
+const usuarios = require("./routes/usuario")
+const passport = require ("passport")
+require ("./config/auth")(passport) 
 
 //config
     //sessão
@@ -16,11 +18,17 @@ const usuarios= require("./routes/usuario")
         resave: true,
         saveUninitialized: true
     }))
+
+    app.use(passport.initialize())
+    app.use(passport.session())
+
     app.use(flash())
     //Middleware
     app.use((req, res, next) => {
         res.locals.success_msg = req.flash('success_msg')
-        res.locals.error_msg - req.flash('error_msg')
+        res.locals.error_msg = req.flash('error_msg')
+        res.locals.error = req.flash("error")
+        res.locals.user = req.user || null;
         next()
     })
      /*app.use((req, res, next) => {
@@ -51,7 +59,7 @@ const usuarios= require("./routes/usuario")
     app.use(express.static(path.join(__dirname, "public")))
 
     app.use((req, res, next) => {
-        console.log("Oi eu sou um middleware!")
+        console.log("Middleware!")
         next()
     })
 //rotas

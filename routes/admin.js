@@ -3,16 +3,14 @@ const router = express.Router()
 const mongoose = require("mongoose")
 require("../models/Categoria")
 const Categoria = mongoose.model("categorias")
+const {eAdmin} = require ("../helpers/eAdmin")
 
-router.get('/', (req,res) => {
+router.get('/', eAdmin, (req,res) => {
     res.render("admin/index")
 })
 
-router.get('/posts', (req,res) => {
-    res.send("Página de posts")
-})
 
-router.get("/categorias", (req, res) => {
+router.get("/categorias", eAdmin, (req, res) => {
     Categoria.find().lean().then((categorias) => {
         res.render("admin/categorias", {categorias: categorias})
     }).catch((err) => {
@@ -21,7 +19,7 @@ router.get("/categorias", (req, res) => {
     })
 })
 
-router.post("/categorias/nova", (req, res) => {
+router.post("/categorias/nova", eAdmin, (req, res) => {
     
     let erros = []
 
@@ -50,7 +48,7 @@ router.post("/categorias/nova", (req, res) => {
     })
 })
 
-router.get("/categorias/add", (req, res) => {
+router.get("/categorias/add", eAdmin, (req, res) => {
     res.render("admin/addcategorias")
 })
 
