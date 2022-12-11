@@ -5,7 +5,7 @@ require("../models/Categoria")
 const Categoria = mongoose.model("categorias")
 const {eAdmin} = require ("../helpers/eAdmin")
 
-router.get('/', (req,res) => {
+router.get('/', eAdmin, (req,res) => {
     res.render("admin/index")
 })
 
@@ -17,16 +17,35 @@ router.get("/categorias", (req, res) => {
         req.flash('error_msg', "Houve um erro ao listar as categorias")
         res.redirect("/admin")
     })
+
+    /*for(i of Categoria.querySelectorAll('[search]')){
+        try{
+            busca(i,Categoria.querySelector("#"+i.getAttribute('search')))
+        }catch(e){}
+    }
+    
+    function busca(input_field,div){
+        input_field.onkeyup=function(e){
+            for(di of div.children){
+                r  = new RegExp(this.value,"g")
+                if(di.getAttribute("nome").toLowerCase().match(r) != null)
+                    di.style.removeProperty('display')
+                else
+                    di.style.display = "none"
+            }
+        }
+    }*/
+
 })
 
-router.post("/categorias/nova", (req, res) => {
+router.post("/categorias/nova", eAdmin, (req, res) => {
     
     let erros = []
 
-    if(!req.body.logradouro || typeof req.body.logradouro == undefined || req.body.logradouro == null){
+    if(!req.body.logradouro || typeof req.body.logradouro == undefined || req.body.logradouro == null || req.body.logradouro.length < 3){
         erros.push({texto: "Logradouro inválido"})
     }
-    if(!req.body.cep || typeof req.body.cep == undefined || req.body.cep == null){
+    if(!req.body.cep || typeof req.body.cep == undefined || req.body.cep == null || req.body.cep.length < 3){
         erros.push({texto: "Cep inválido"})
     }
 
@@ -49,7 +68,7 @@ router.post("/categorias/nova", (req, res) => {
     })
 })
 
-router.get("/categorias/add", (req, res) => {
+router.get("/categorias/add", eAdmin,  (req, res) => {
     res.render("admin/addcategorias")
 })
 
