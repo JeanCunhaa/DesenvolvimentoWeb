@@ -11,6 +11,7 @@ const usuarios = require("./routes/usuario")
 const passport = require ("passport")
 require ("./config/auth")(passport) 
 const db = require("./config/db")
+const uploadUser = require('./middlewares/uploadImage')
 //config
     //sessão
     app.use(session({
@@ -65,6 +66,22 @@ const db = require("./config/db")
 //rotas
     app.get("/", (req, res) => {
         res.render("index")
+    })
+
+    app.post("/upload-image", uploadUser.single('image'), async (req, res) => {
+        
+        if(req.file){
+            return res.json({
+                erro: false,
+                mensagem: "Upload realizado com sucesso"
+            })
+        }
+        
+        return res.status(400).json({
+            erro:true,
+            mensagem: "Erro: Upload não realizado com sucesso, necessário enviar uma imagem com extensão PNG/JPG"
+        })
+        
     })
 
     app.use('/admin', admin)

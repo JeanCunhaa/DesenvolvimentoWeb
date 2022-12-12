@@ -9,6 +9,9 @@
 
 <div class="card">
     <div class="card-body">
+        <form action="/upload-image" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" />
+        </form>
         <form action="/admin/categorias/nova" method="POST">
         <label for="logradouro">Logradouro: </label>
             <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" class="form-control">
@@ -17,5 +20,6 @@
             <br>
         <button type="submit" class="btn btn-success"> Criar categoria</button>
         </form>
+        
     </div>
 </div>
