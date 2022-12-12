@@ -10,7 +10,7 @@ const flash = require("connect-flash")
 const usuarios = require("./routes/usuario")
 const passport = require ("passport")
 require ("./config/auth")(passport) 
-
+const db = require("./config/db")
 //config
     //sessão
     app.use(session({
@@ -46,7 +46,7 @@ require ("./config/auth")(passport)
     app.set("layouts", "main");
     //mongoose
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost/sitenike", {
+    mongoose.connect(db.mongoURI, {
         useNewUrlParser: true
     }).then(() => {
         console.log("MongoDB conectado....")
@@ -71,7 +71,7 @@ require ("./config/auth")(passport)
     app.use("/usuarios", usuarios)
 
 //outros
-const PORT = 8081
+const PORT = process.env.PORT || 8081
 app.listen(PORT, () => {
     console.log("Servidor rodando....")
 })
