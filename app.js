@@ -71,7 +71,7 @@ const db = require("./config/db")
     app.use("/usuarios", usuarios)
 
 //outros
-const PORT = process.env.PORT || 8081
+const PORT = process.env.PORT || 8081 || 3333
 app.listen(PORT, () => {
     console.log("Servidor rodando....")
 })
